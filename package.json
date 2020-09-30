@@ -3,8 +3,15 @@
   "version": "0.0.0",
   "description": "Jest preset for easily running tests using DynamoDB local",
   "main": "index.js",
+  "engines": {
+    "node": "^12.10.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint . --ext. js",
+    "format": "prettier --write **/*.{js{,on},md}",
+    "typecheck": "tsc",
+    "pretest": "npm run lint && npm run format && npm run typecheck",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -22,5 +29,37 @@
   "bugs": {
     "url": "https://github.com/danmactough/jest-dynamodb-local-docker/issues"
   },
-  "homepage": "https://github.com/danmactough/jest-dynamodb-local-docker#readme"
+  "homepage": "https://github.com/danmactough/jest-dynamodb-local-docker#readme",
+  "devDependencies": {
+    "@types/jest": "^26.0.14",
+    "@types/node": "^14.11.2",
+    "eslint": "^7.10.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-node": "^11.1.0",
+    "husky": "^4.3.0",
+    "jest": "^26.4.2",
+    "lint-staged": "^10.4.0",
+    "prettier": "^2.1.2",
+    "typescript": "^4.0.3"
+  },
+  "prettier": {
+    "singleQuote": true
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && npm run typecheck"
+    }
+  },
+  "lint-staged": {
+    "*.{json,y{,a}ml,md}": [
+      "prettier --write"
+    ],
+    "*.js": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  },
+  "jest": {
+    "testEnvironment": "node"
+  }
 }
