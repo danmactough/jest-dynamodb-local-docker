@@ -1,0 +1,26 @@
+{
+  "name": "jest-dynamodb-local-docker",
+  "version": "0.0.0",
+  "description": "Jest preset for easily running tests using DynamoDB local",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danmactough/jest-dynamodb-local-docker.git"
+  },
+  "keywords": [
+    "dynamodb",
+    "jest",
+    "jest-preset",
+    "jest-environment",
+    "docker"
+  ],
+  "author": "Dan MacTough <danmactough@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/danmactough/jest-dynamodb-local-docker/issues"
+  },
+  "homepage": "https://github.com/danmactough/jest-dynamodb-local-docker#readme"
+}
