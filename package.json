@@ -4,7 +4,7 @@
   "description": "Jest preset for easily running tests using DynamoDB local",
   "main": "index.js",
   "engines": {
-    "node": "^12.10.0"
+    "node": ">=12.10.0"
   },
   "scripts": {
     "lint": "eslint . --ext. js",
