@@ -1,6 +1,6 @@
 {
   "name": "jest-dynamodb-local-docker",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Jest preset for easily running tests using DynamoDB local",
   "main": "index.js",
   "engines": {
