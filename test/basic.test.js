@@ -70,31 +70,31 @@ describe('createTable', () => {
       global.createTable({ tableProperties })
     ).resolves.toBeUndefined();
     await expect(
-      ddbClient
-        .put({
-          TableName: tableName,
-          Item: { partition: 'abc', sort: '1' },
-        })
-        .promise()
+      ddbClient.put({
+        TableName: tableName,
+        Item: { partition: 'abc', sort: '1' },
+      })
     ).resolves.toEqual(expect.anything());
     await expect(
-      ddbClient
-        .get({
-          TableName: tableName,
-          Key: {
-            partition: 'abc',
-            sort: '1',
-          },
-        })
-        .promise()
-    ).resolves.toMatchInlineSnapshot(`
-            Object {
-              "Item": Object {
-                "partition": "abc",
-                "sort": "1",
-              },
-            }
-          `);
+      ddbClient.get({
+        TableName: tableName,
+        Key: {
+          partition: 'abc',
+          sort: '1',
+        },
+      })
+    ).resolves.toMatchInlineSnapshot(
+      { $metadata: expect.any(Object) },
+      `
+      {
+        "$metadata": Any<Object>,
+        "Item": {
+          "partition": "abc",
+          "sort": "1",
+        },
+      }
+    `
+    );
   });
 });
 describe('deleteTable', () => {
