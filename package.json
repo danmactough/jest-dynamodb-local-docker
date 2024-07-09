@@ -7,6 +7,7 @@
     "node": ">=20.11.1"
   },
   "scripts": {
+    "prepare": "husky install",
     "lint": "eslint . --ext. js",
     "format": "prettier --write **/*.{js{,on},md}",
     "typecheck": "tsc",
@@ -52,11 +53,6 @@
   },
   "prettier": {
     "singleQuote": true
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged && npm run typecheck"
-    }
   },
   "lint-staged": {
     "*.{json,y{,a}ml,md}": [
