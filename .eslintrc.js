@@ -2,13 +2,13 @@ module.exports = {
   root: true,
   env: {
     commonjs: true,
-    es2020: true,
+    es2024: true,
     node: true,
   },
   plugins: ['node'],
   extends: ['eslint:recommended', 'eslint-config-prettier'],
   parserOptions: {
-    ecmaVersion: 11,
+    ecmaVersion: 2024,
   },
   rules: {
     'no-confusing-arrow': ['error', { allowParens: true }],
@@ -39,8 +39,8 @@ module.exports = {
 
     // node
     'node/no-missing-require': 'error',
-    'node/no-unsupported-features/es-builtins': ['error', { version: '12' }],
-    'node/no-unsupported-features/es-syntax': ['error', { version: '12' }],
-    'node/no-unsupported-features/node-builtins': ['error', { version: '12' }],
+    'node/no-unsupported-features/es-builtins': ['error', { version: '20' }],
+    'node/no-unsupported-features/es-syntax': ['error', { version: '20' }],
+    'node/no-unsupported-features/node-builtins': ['error', { version: '20' }],
   },
 };
