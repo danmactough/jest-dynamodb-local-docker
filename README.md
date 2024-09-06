@@ -1,10 +1,35 @@
 # jest-dynamodb-local-docker
 
-Jest preset for easily running tests using DynamoDB local
+Jest preset and helper functions for easily running tests using DynamoDB local
 
 ## Usage
 
 See the [tests in this repo](./test/basic.test.js) for example usage.
+
+```js
+const {
+  getDynamodbClient,
+  getDynamodbDocumentClient,
+  createTable,
+  deleteTable,
+} = require('jest-dynamodb-local-docker');
+
+describe('test', () => {
+  beforeAll(async () => {
+    await createTable(/* table properties */);
+  });
+  afterAll(async () => {
+    await deleteTable(/* { tableName: 'table name' } */);
+  });
+  it('should work', async () => {
+    const ddb = getDynamodbDocumentClient(); // or use the standard DynamoDB Client with getDynamodbClient()
+    await ddb.put(/* put request */);
+    await expect(
+      ddb.get(/* get request */)
+    ).toStrictEqual(/* the item we just wrote */);
+  });
+});
+```
 
 ### Add to your Jest setup
 
@@ -19,7 +44,7 @@ Add the `jest-dynamodb-local-docker` [preset to your Jest config](https://jestjs
 }
 ```
 
-### Globals
+### Globals (Deprecated)
 
 - **`global.createTable`** - Creates a DynamoDB table
 - **`global.deleteTable`** - Deletes a DynamoDB table
